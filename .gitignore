@@ -1,0 +1,49 @@
+# Environment — never commit secrets
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+.venv/
+env/
+ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.cover
+.hypothesis/
+htmlcov/
+.tox/
+
+# Node / React
+node_modules/
+dist/
+.next/
+out/
+.DS_Store
+*.local
+
+# Splunk app artifacts
+*.spl
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+Desktop.ini

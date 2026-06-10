@@ -73,19 +73,19 @@ data/            # Synthetic attack dataset generator
 scripts/         # verify_live.py and utilities
 ```
 
-## Phase Status
+## Feature Status
 
-- [x] Phase 0 — Live setup & verification
-- [ ] Phase 1 — Synthetic data generator + ingest
-- [ ] Phase 2 — McpSplunkClient
-- [ ] Phase 3 — Foundation-Sec scoring
-- [ ] Phase 4 — Identity Analyst (vertical slice)
-- [ ] Phase 5 — Remaining agents
-- [ ] Phase 6 — Orchestrator
-- [ ] Phase 7 — FastAPI backend
-- [ ] Phase 8 — React UI
-- [ ] Phase 9 — Native Splunk app
-- [ ] Phase 10 — Polish + demo recording
+- [x] Feature 0 — Live setup & verification
+- [x] Feature 1 — Synthetic data generator + ingest
+- [ ] Feature 2 — McpSplunkClient + Finding/Case/Verdict models
+- [ ] Feature 3 — Foundation-Sec scoring
+- [ ] Feature 4 — Identity Analyst (vertical slice)
+- [ ] Feature 5 — Remaining agents
+- [ ] Feature 6 — Orchestrator
+- [ ] Feature 7 — FastAPI backend
+- [ ] Feature 8 — React UI
+- [ ] Feature 9 — Native Splunk app
+- [ ] Feature 10 — Polish + demo recording
 
 ## License
 

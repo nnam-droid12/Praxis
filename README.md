@@ -77,7 +77,7 @@ scripts/         # verify_live.py and utilities
 
 - [x] Feature 0 — Live setup & verification
 - [x] Feature 1 — Synthetic data generator + ingest
-- [ ] Feature 2 — McpSplunkClient + Finding/Case/Verdict models
+- [x] Feature 2 — McpSplunkClient + Finding/Case/Verdict models
 - [ ] Feature 3 — Foundation-Sec scoring
 - [ ] Feature 4 — Identity Analyst (vertical slice)
 - [ ] Feature 5 — Remaining agents

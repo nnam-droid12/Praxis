@@ -200,8 +200,13 @@ for st in SOURCETYPES:
 hec_path = OUT_DIR / "hec_events.jsonl"
 with hec_path.open("w", encoding="utf-8") as f:
     for e in sorted(events, key=lambda e: e["time"]):
+        # Set HEC's metadata "host" explicitly, otherwise Splunk falls back
+        # to the HTTP Host header (e.g. "localhost:8088"), which shadows any
+        # in-event host/src_host field of the same name at search time.
+        host = e["fields"].get("host") or e["fields"].get("src_host")
         record = {
             "time": e["time"].timestamp(),
+            "host": host,
             "sourcetype": e["sourcetype"],
             "index": "main",
             "event": fmt_kv(e["fields"]),

@@ -24,6 +24,26 @@ All sourcetypes use space-separated `key=value` pairs after a leading
 and field extraction (`KV_MODE=auto` handles the rest automatically even
 without props.conf).
 
+### `host` field convention (cross-sourcetype correlation key)
+
+`gen_scenario.py` sets the HEC metadata `host` field explicitly for every
+event (`fields["host"]` if present, else `fields["src_host"]`). This makes
+`host` a consistent "asset" identifier across all 4 sourcetypes:
+
+- `praxis:auth` -> the user's workstation (e.g. `WKSTN-OKONKWO`)
+- `praxis:network` -> the connection's `src_host`
+- `praxis:endpoint` -> the host where the task was created (e.g. `FS01`)
+- `praxis:egress` -> the connection's `src_host`
+
+This lets agents pivot on `host=<asset>` to correlate identity, lateral
+movement, persistence, and exfiltration events for the same asset, without
+needing to know which field name each sourcetype uses internally.
+
+(Without setting HEC's top-level `host`, Splunk falls back to the HTTP
+`Host` header of the ingest connection, e.g. `localhost:8088`, which
+shadows any in-event `host=` field of the same name and breaks this
+correlation - this is why the top-level HEC `host` is required.)
+
 ### praxis:auth
 | Field | Description |
 |---|---|
@@ -116,20 +136,35 @@ Then run the oneshot commands above.
 
 ## Verify Ingestion (SPL)
 
-Run these in Splunk Search or via `splunk_run_query`:
+Run these in Splunk Search or via `splunk_run_query`. Use a tight `earliest`
+(e.g. `-1h`, adjusted to just after `gen_scenario.py` last ran) so only the
+most recent ingestion batch is in scope - see "Re-running the generator"
+below.
 
 ```spl
-| tstats count where index=main sourcetype IN (praxis:auth, praxis:network, praxis:endpoint, praxis:egress) by sourcetype
+search index=main sourcetype IN (praxis:auth, praxis:network, praxis:endpoint, praxis:egress) earliest=-1h
+| stats count by sourcetype
 ```
 Expected: `praxis:auth=59`, `praxis:network=52`, `praxis:endpoint=52`, `praxis:egress=66`.
 
 **Confirm the planted campaign:**
 ```spl
-search index=main user=j.okonkwo earliest=-2h
+search index=main user=j.okonkwo earliest=-1h
 | sort _time
 | table _time sourcetype user host src_host dest_host action protocol dest_domain geo_velocity_kmh
 ```
-Expected: 26 events (1 impossible travel + 6 MFA + 2 lateral + 1 persistence + 16 egress) across a ~22-minute span, all referencing `WKSTN-OKONKWO` and `FS01`.
+Expected: 26 events (1 impossible travel + 6 MFA + 2 lateral + 1 persistence + 16 egress) across a ~22-minute span, all referencing `host=WKSTN-OKONKWO` (auth + network origin) or `host=FS01` (network dest + endpoint + egress).
+
+**Confirm host-pivot correlation:**
+```spl
+search index=main host=WKSTN-OKONKWO earliest=-1h | stats count by sourcetype
+```
+Expected: `praxis:auth=7`, `praxis:network=2` (total 9).
+
+```spl
+search index=main host=FS01 earliest=-1h | stats count by sourcetype
+```
+Expected: `praxis:endpoint=1`, `praxis:egress=16` (total 17).
 
 **Confirm the 5 alerts fire** (after installing savedsearches.conf and waiting up to 5 min for the cron):
 ```spl
@@ -143,3 +178,18 @@ Expected: 26 events (1 impossible travel + 6 MFA + 2 lateral + 1 persistence + 1
 search index=main (user=m.okafor OR (user=it.admin host=FS02)) earliest=-24h
 | table _time sourcetype user geo_velocity_kmh travel_record signed change_ticket
 ```
+
+## Re-running the generator
+
+`gen_scenario.py` anchors the planted campaign ~35 minutes before the
+moment it runs, so re-run it shortly before each demo/investigation:
+
+```powershell
+python data/gen_scenario.py
+python scripts/ingest_hec.py
+```
+
+Each run appends a fresh 229-event batch to `index=main` (HEC has no
+upsert/replace). Older batches age out of any tightly-windowed
+investigation query (e.g. `earliest=-1h`) within an hour or two and can be
+left in place as harmless dev-index history.

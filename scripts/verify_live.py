@@ -1,5 +1,5 @@
 """
-verify_live.py — Phase 0 live connectivity check for Praxis.
+verify_live.py — Feature 0 live connectivity check for Praxis.
 
 Confirms:
   1. MCP Server is reachable at SPLUNK_MCP_URL with SPLUNK_TOKEN.
@@ -233,7 +233,7 @@ async def check_spl_gen(client: httpx.AsyncClient, tool_names: list[str]) -> boo
 
 async def main() -> None:
     print(f"{BOLD}{'='*60}{RST}")
-    print(f"{BOLD}  Praxis - Phase 0 Live Connectivity Check{RST}")
+    print(f"{BOLD}  Praxis - Feature 0 Live Connectivity Check{RST}")
     print(f"{BOLD}{'='*60}{RST}")
 
     if not await check_env():

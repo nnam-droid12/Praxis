@@ -1,0 +1,59 @@
+2026-06-09 01:09:17 user=r.patel app=okta action=login status=success auth_method=password src_ip=81.2.69.234 src_country=US src_city="New York" host=WKSTN-PATEL
+2026-06-09 01:18:58 user=h.yamamoto app=vpn action=login status=success auth_method=mfa_totp src_ip=81.2.69.214 src_country=US src_city="New York" host=WKSTN-YAMAMOTO
+2026-06-09 01:23:51 user=e.osei app=o365 action=login status=success auth_method=password src_ip=81.2.69.133 src_country=US src_city="New York" host=WKSTN-OSEI
+2026-06-09 01:43:57 user=l.garcia app=o365 action=login status=success auth_method=password src_ip=81.2.69.251 src_country=GB src_city=London host=WKSTN-GARCIA
+2026-06-09 01:56:34 user=s.dubois app=o365 action=login status=success auth_method=mfa_push src_ip=81.2.69.180 src_country=US src_city="New York" host=WKSTN-DUBOIS
+2026-06-09 02:54:48 user=s.dubois app=okta action=login status=success auth_method=mfa_push src_ip=81.2.69.117 src_country=US src_city="New York" host=WKSTN-DUBOIS
+2026-06-09 04:05:10 user=s.dubois app=vpn action=login status=success auth_method=mfa_push src_ip=81.2.69.222 src_country=GB src_city=London host=WKSTN-DUBOIS
+2026-06-09 04:34:37 user=a.smith app=vpn action=login status=success auth_method=mfa_totp src_ip=81.2.69.161 src_country=GB src_city=Manchester host=WKSTN-SMITH
+2026-06-09 04:47:52 user=e.osei app=vpn action=login status=success auth_method=mfa_push src_ip=81.2.69.45 src_country=GB src_city=London host=WKSTN-OSEI
+2026-06-09 04:59:54 user=s.dubois app=vpn action=login status=success auth_method=password src_ip=81.2.69.21 src_country=GB src_city=London host=WKSTN-DUBOIS
+2026-06-09 05:27:28 user=l.garcia app=o365 action=login status=success auth_method=mfa_push src_ip=81.2.69.82 src_country=GB src_city=Manchester host=WKSTN-GARCIA
+2026-06-09 05:45:54 user=l.garcia app=okta action=login status=success auth_method=mfa_push src_ip=81.2.69.186 src_country=GB src_city=London host=WKSTN-GARCIA
+2026-06-09 05:54:22 user=k.muller app=vpn action=login status=success auth_method=mfa_totp src_ip=81.2.69.124 src_country=US src_city="New York" host=WKSTN-MULLER
+2026-06-09 06:02:49 user=m.okafor app=okta action=login status=success auth_method=mfa_totp src_ip=81.2.69.142 src_country=GB src_city=London host=LAPTOP-OKAFOR
+2026-06-09 06:54:13 user=k.muller app=vpn action=login status=success auth_method=mfa_totp src_ip=81.2.69.225 src_country=GB src_city=Manchester host=WKSTN-MULLER
+2026-06-09 07:33:20 user=r.patel app=okta action=login status=success auth_method=mfa_totp src_ip=81.2.69.205 src_country=GB src_city=Manchester host=WKSTN-PATEL
+2026-06-09 08:25:27 user=h.yamamoto app=vpn action=login status=success auth_method=mfa_push src_ip=81.2.69.109 src_country=GB src_city=London host=WKSTN-YAMAMOTO
+2026-06-09 09:24:50 user=h.yamamoto app=okta action=login status=success auth_method=mfa_push src_ip=81.2.69.179 src_country=GB src_city=Manchester host=WKSTN-YAMAMOTO
+2026-06-09 09:30:31 user=t.nguyen app=o365 action=login status=success auth_method=password src_ip=81.2.69.117 src_country=US src_city="New York" host=WKSTN-NGUYEN
+2026-06-09 10:17:46 user=e.osei app=o365 action=login status=success auth_method=password src_ip=81.2.69.67 src_country=US src_city="New York" host=WKSTN-OSEI
+2026-06-09 11:07:02 user=s.dubois app=vpn action=login status=success auth_method=mfa_push src_ip=81.2.69.164 src_country=GB src_city=Manchester host=WKSTN-DUBOIS
+2026-06-09 11:13:51 user=t.nguyen app=okta action=login status=success auth_method=mfa_totp src_ip=81.2.69.144 src_country=US src_city="New York" host=WKSTN-NGUYEN
+2026-06-09 12:14:30 user=t.nguyen app=o365 action=login status=success auth_method=mfa_push src_ip=81.2.69.132 src_country=US src_city="New York" host=WKSTN-NGUYEN
+2026-06-09 12:52:35 user=l.garcia app=okta action=login status=success auth_method=mfa_push src_ip=81.2.69.221 src_country=US src_city="New York" host=WKSTN-GARCIA
+2026-06-09 13:07:31 user=s.dubois app=o365 action=login status=success auth_method=password src_ip=81.2.69.162 src_country=GB src_city=London host=WKSTN-DUBOIS
+2026-06-09 13:07:59 user=t.nguyen app=okta action=login status=success auth_method=password src_ip=81.2.69.134 src_country=US src_city="New York" host=WKSTN-NGUYEN
+2026-06-09 13:18:03 user=l.garcia app=o365 action=login status=success auth_method=password src_ip=81.2.69.138 src_country=GB src_city=London host=WKSTN-GARCIA
+2026-06-09 13:32:31 user=t.nguyen app=o365 action=login status=success auth_method=mfa_totp src_ip=81.2.69.87 src_country=GB src_city=London host=WKSTN-NGUYEN
+2026-06-09 13:56:48 user=r.patel app=okta action=login status=success auth_method=mfa_totp src_ip=81.2.69.75 src_country=US src_city="New York" host=WKSTN-PATEL
+2026-06-09 14:12:51 user=l.garcia app=okta action=login status=success auth_method=mfa_push src_ip=81.2.69.98 src_country=GB src_city=Manchester host=WKSTN-GARCIA
+2026-06-09 15:22:34 user=r.patel app=okta action=login status=success auth_method=mfa_push src_ip=81.2.69.89 src_country=GB src_city=Manchester host=WKSTN-PATEL
+2026-06-09 16:05:43 user=e.osei app=vpn action=login status=success auth_method=mfa_push src_ip=81.2.69.206 src_country=GB src_city=Manchester host=WKSTN-OSEI
+2026-06-09 16:06:07 user=k.muller app=okta action=login status=success auth_method=mfa_totp src_ip=81.2.69.138 src_country=GB src_city=London host=WKSTN-MULLER
+2026-06-09 16:34:25 user=t.nguyen app=vpn action=login status=success auth_method=mfa_totp src_ip=81.2.69.252 src_country=GB src_city=London host=WKSTN-NGUYEN
+2026-06-09 16:56:25 user=s.dubois app=vpn action=login status=success auth_method=mfa_push src_ip=81.2.69.228 src_country=GB src_city=London host=WKSTN-DUBOIS
+2026-06-09 16:59:34 user=s.dubois app=o365 action=login status=success auth_method=password src_ip=81.2.69.123 src_country=GB src_city=Manchester host=WKSTN-DUBOIS
+2026-06-09 17:19:23 user=r.patel app=vpn action=login status=success auth_method=mfa_push src_ip=81.2.69.249 src_country=US src_city="New York" host=WKSTN-PATEL
+2026-06-09 17:36:11 user=s.dubois app=okta action=login status=success auth_method=mfa_totp src_ip=81.2.69.78 src_country=GB src_city=Manchester host=WKSTN-DUBOIS
+2026-06-09 17:39:27 user=a.smith app=o365 action=login status=success auth_method=mfa_push src_ip=81.2.69.190 src_country=GB src_city=London host=WKSTN-SMITH
+2026-06-09 18:56:02 user=t.nguyen app=o365 action=login status=success auth_method=mfa_push src_ip=81.2.69.248 src_country=GB src_city=London host=WKSTN-NGUYEN
+2026-06-09 19:50:39 user=h.yamamoto app=o365 action=login status=success auth_method=password src_ip=81.2.69.250 src_country=US src_city="New York" host=WKSTN-YAMAMOTO
+2026-06-09 20:20:40 user=a.smith app=okta action=login status=success auth_method=mfa_push src_ip=81.2.69.53 src_country=GB src_city=London host=WKSTN-SMITH
+2026-06-09 20:20:46 user=e.osei app=vpn action=login status=success auth_method=mfa_totp src_ip=81.2.69.73 src_country=GB src_city=Manchester host=WKSTN-OSEI
+2026-06-09 20:24:22 user=h.yamamoto app=o365 action=login status=success auth_method=password src_ip=81.2.69.250 src_country=GB src_city=London host=WKSTN-YAMAMOTO
+2026-06-09 20:27:07 user=t.nguyen app=okta action=login status=success auth_method=password src_ip=81.2.69.189 src_country=GB src_city=London host=WKSTN-NGUYEN
+2026-06-09 21:13:41 user=e.osei app=vpn action=login status=success auth_method=mfa_push src_ip=81.2.69.31 src_country=GB src_city=Manchester host=WKSTN-OSEI
+2026-06-09 21:54:30 user=t.nguyen app=vpn action=login status=success auth_method=mfa_push src_ip=81.2.69.64 src_country=GB src_city=London host=WKSTN-NGUYEN
+2026-06-09 22:14:13 user=s.dubois app=vpn action=login status=success auth_method=mfa_totp src_ip=81.2.69.159 src_country=GB src_city=Manchester host=WKSTN-DUBOIS
+2026-06-09 22:35:02 user=a.smith app=o365 action=login status=success auth_method=mfa_push src_ip=81.2.69.215 src_country=GB src_city=London host=WKSTN-SMITH
+2026-06-09 23:07:26 user=t.nguyen app=o365 action=login status=success auth_method=mfa_totp src_ip=81.2.69.158 src_country=GB src_city=Manchester host=WKSTN-NGUYEN
+2026-06-10 00:02:49 user=m.okafor app=okta action=login status=success auth_method=mfa_totp src_ip=175.45.16.88 src_country=SG src_city=Singapore host=LAPTOP-OKAFOR prev_country=GB prev_city=London prev_login_minutes_ago=540 geo_velocity_kmh=1206 travel_record=CONFIRMED-TRV-2026-0091
+2026-06-10 00:25:36 user=r.patel app=okta action=login status=success auth_method=mfa_totp src_ip=81.2.69.60 src_country=GB src_city=London host=WKSTN-PATEL
+2026-06-10 00:27:49 user=j.okonkwo app=okta action=login status=success auth_method=password src_ip=185.220.101.45 src_country=RU src_city=Moscow host=WKSTN-OKONKWO prev_country=GB prev_city=London prev_login_minutes_ago=11 geo_velocity_kmh=13636
+2026-06-10 00:30:19 user=j.okonkwo app=okta action=mfa_challenge status=denied auth_method=mfa_push src_ip=185.220.101.45 src_country=RU src_city=Moscow host=WKSTN-OKONKWO mfa_attempt_number=1
+2026-06-10 00:30:31 user=j.okonkwo app=okta action=mfa_challenge status=denied auth_method=mfa_push src_ip=185.220.101.45 src_country=RU src_city=Moscow host=WKSTN-OKONKWO mfa_attempt_number=2
+2026-06-10 00:30:43 user=j.okonkwo app=okta action=mfa_challenge status=denied auth_method=mfa_push src_ip=185.220.101.45 src_country=RU src_city=Moscow host=WKSTN-OKONKWO mfa_attempt_number=3
+2026-06-10 00:30:55 user=j.okonkwo app=okta action=mfa_challenge status=denied auth_method=mfa_push src_ip=185.220.101.45 src_country=RU src_city=Moscow host=WKSTN-OKONKWO mfa_attempt_number=4
+2026-06-10 00:31:07 user=j.okonkwo app=okta action=mfa_challenge status=denied auth_method=mfa_push src_ip=185.220.101.45 src_country=RU src_city=Moscow host=WKSTN-OKONKWO mfa_attempt_number=5
+2026-06-10 00:31:27 user=j.okonkwo app=okta action=mfa_challenge status=approved auth_method=mfa_push src_ip=185.220.101.45 src_country=RU src_city=Moscow host=WKSTN-OKONKWO mfa_attempt_number=6

@@ -6,4 +6,4 @@ verdict and kill-chain timeline.
 
 - `graph.py` — LangGraph `StateGraph` definition
 
-Implemented in Phase 6.
+Implemented in Feature 6.

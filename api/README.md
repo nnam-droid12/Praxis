@@ -7,4 +7,4 @@ real time.
 - `main.py` — FastAPI app, SSE endpoint
 - `schemas.py` — request/response models
 
-Implemented in Phase 7.
+Implemented in Feature 7.

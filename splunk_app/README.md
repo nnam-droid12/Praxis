@@ -6,4 +6,4 @@ Praxis orchestrator to run a full multi-agent investigation.
 
 Built with the Splunk Python SDK.
 
-Implemented in Phase 9.
+Implemented in Feature 9.

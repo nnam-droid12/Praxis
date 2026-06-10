@@ -13,4 +13,4 @@ Each agent calls `saia_generate_spl` to draft SPL from natural-language
 intent, runs it via `McpSplunkClient`, and scores findings with
 Foundation-Sec-1.1-8B.
 
-Implemented in Phase 4 (vertical slice) and Phase 5 (remaining agents).
+Implemented in Feature 4 (vertical slice) and Feature 5 (remaining agents).

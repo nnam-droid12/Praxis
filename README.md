@@ -84,7 +84,7 @@ scripts/         # verify_live.py and utilities
 - [x] Feature 3 — Rule-based Finding scoring
 - [x] Feature 4 — Identity Analyst (vertical slice)
 - [x] Feature 5 — Remaining agents
-- [ ] Feature 6 — Orchestrator
+- [x] Feature 6 — Orchestrator
 - [ ] Feature 7 — FastAPI backend
 - [ ] Feature 8 — React UI
 - [ ] Feature 9 — Native Splunk app

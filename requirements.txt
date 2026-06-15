@@ -2,3 +2,4 @@ httpx
 python-dotenv
 pydantic>=2
 anthropic
+langgraph

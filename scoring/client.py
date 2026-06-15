@@ -63,9 +63,12 @@ def _confidence_for(total: int) -> float:
     return round(max(0.1, min(0.95, 0.2 + 0.1 * total)), 2)
 
 
+NO_SIGNALS_RATIONALE = "No risk signals matched in the sampled events."
+
+
 def _rationale(signals: list[_Signal]) -> str:
     if not signals:
-        return "No risk signals matched in the sampled events."
+        return NO_SIGNALS_RATIONALE
     seen: list[str] = []
     for signal in signals:
         if signal.detail not in seen:

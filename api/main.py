@@ -13,14 +13,25 @@ from __future__ import annotations
 import json
 from typing import AsyncIterator
 
+from dotenv import load_dotenv
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 
-from orchestrator import run_case  # noqa: F401  (re-exported for convenience)
-from orchestrator.graph import stream_case
-from splunk import McpSplunkClient
+load_dotenv()
+
+from orchestrator import run_case  # noqa: E402, F401  (re-exported for convenience)
+from orchestrator.graph import stream_case  # noqa: E402
+from splunk import McpSplunkClient  # noqa: E402
 
 app = FastAPI(title="Praxis Investigation API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_methods=["GET"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/health")

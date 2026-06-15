@@ -54,12 +54,23 @@ cp .env.example .env
 # Edit .env: set SPLUNK_MCP_URL and SPLUNK_TOKEN
 
 # 2. Verify live connectivity
-pip install httpx python-dotenv
+pip install -r requirements.txt
 python scripts/verify_live.py
 
-# 3. Launch
-docker compose up
-# Open http://localhost:5173
+# 3. Launch the FastAPI SSE backend
+uvicorn api.main:app --reload
+# -> http://localhost:8000 (/health, /investigate/{user})
+
+# 4. Launch the React Investigation Console
+cd ui && npm install && npm run dev
+# -> http://localhost:5173
+```
+
+If the backend isn't on `http://localhost:8000`, point the UI at it via
+`ui/.env.local`:
+
+```
+VITE_API_BASE=http://localhost:8800
 ```
 
 ## Project Structure
@@ -86,7 +97,7 @@ scripts/         # verify_live.py and utilities
 - [x] Feature 5 — Remaining agents
 - [x] Feature 6 — Orchestrator
 - [x] Feature 7 — FastAPI backend
-- [ ] Feature 8 — React UI
+- [x] Feature 8 — React UI
 - [ ] Feature 9 — Native Splunk app
 - [ ] Feature 10 — Polish + demo recording
 

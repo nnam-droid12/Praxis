@@ -26,6 +26,13 @@ export function VerdictPanel({ verdict }: { verdict: VerdictEvent }) {
       )}
 
       <KillChainTimeline steps={v.kill_chain} />
+
+      <div className="mt-3 rounded-md border border-emerald-800 bg-emerald-950/40 p-2 text-xs text-emerald-200">
+        <span className="font-semibold">Closed loop: </span>
+        Verdicts like this can also be generated automatically — a Splunk alert
+        action runs this same investigation and writes the result back as{" "}
+        <code className="rounded bg-slate-800 px-1 py-0.5">sourcetype=praxis:verdict</code>.
+      </div>
     </div>
   );
 }

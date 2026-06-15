@@ -3,6 +3,7 @@ import { useInvestigation } from "./hooks/useInvestigation";
 import { AGENT_ORDER } from "./types";
 import { AgentPanel } from "./components/AgentPanel";
 import { VerdictPanel } from "./components/VerdictPanel";
+import { HowItWorks } from "./components/HowItWorks";
 
 const KNOWN_USERS = ["j.okonkwo", "m.okafor", "it.admin"];
 
@@ -66,6 +67,8 @@ function App() {
         </form>
 
         {error && <p className="mb-4 text-sm text-red-400">{error}</p>}
+
+        {status === "idle" && <HowItWorks />}
 
         {status !== "idle" && (
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">

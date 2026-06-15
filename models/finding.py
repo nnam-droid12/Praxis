@@ -19,8 +19,9 @@ class Severity(str, Enum):
 class Finding(BaseModel):
     """One piece of evidence an agent surfaces for a Case.
 
-    `confidence` and `severity` start at their lowest values and are set by
-    the Foundation-Sec scoring model (Feature 3).
+    `confidence`, `severity` and `rationale` start at their lowest/empty
+    values and are set by `ScoringClient` (Feature 3): deterministic
+    field-threshold rules over `events`, no external LLM dependency.
     """
 
     id: str = Field(default_factory=lambda: f"finding-{uuid.uuid4().hex[:12]}")
@@ -29,6 +30,8 @@ class Finding(BaseModel):
     description: str
     severity: Severity = Severity.LOW
     confidence: float = Field(default=0.0, ge=0.0, le=1.0)
+    rationale: str = ""
+    scoring_method: str = ""
     spl_query: str
     events: list[dict] = Field(default_factory=list)
     entities: dict[str, list[str]] = Field(default_factory=dict)

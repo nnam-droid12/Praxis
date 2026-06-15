@@ -102,11 +102,16 @@ class McpSplunkClient:
         latest_time: str = "now",
         row_limit: int = 100,
     ) -> list[dict[str, Any]]:
-        """Run an SPL search via `splunk_run_query` and return result rows."""
+        """Run an SPL search via `splunk_run_query` and return result rows.
+
+        Appends `| table *` so auto-extracted KV fields (e.g.
+        geo_velocity_kmh, dest_role, signed, bytes_out) are present on every
+        result row, not just Splunk's default field subset.
+        """
         result = await self.call_tool(
             "splunk_run_query",
             {
-                "query": query,
+                "query": f"{query.rstrip()} | table *",
                 "earliest_time": earliest_time,
                 "latest_time": latest_time,
                 "row_limit": row_limit,

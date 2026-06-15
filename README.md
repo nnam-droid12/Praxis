@@ -23,7 +23,7 @@ Orchestrator (LangGraph)
       ├── Identity Analyst ─────┐
       ├── Lateral Movement ─────┤  each: saia_generate_spl → splunk_search
       ├── Exfiltration ─────────┼─ via McpSplunkClient (token auth, real MCP)
-      ├── Persistence ──────────┤  each scores via Foundation-Sec-1.1-8B (AITK)
+      ├── Persistence ──────────┤  each scores via rule-based ScoringClient (Feature 3)
       └── Devil's Advocate ─────┘
       │  fan-in
       ▼
@@ -37,11 +37,14 @@ FastAPI SSE stream ──► React "Investigation Console"
 
 | Capability | Where |
 |---|---|
-| MCP Server (app 7931) | All Splunk reads — `splunk_search`, `splunk_list_saved_searches` |
-| AI Assistant for SPL (app 7245) | `saia_generate_spl` — agents author SPL from natural-language intent |
-| AI Toolkit — Foundation-Sec-1.1-8B | Finding severity scoring |
-| AI Toolkit — Cisco Deep Time Series | Anomaly/behavioral baselining |
+| MCP Server (app 7931) | All Splunk reads — `splunk_run_query`, `splunk_run_saved_search` |
 | Python SDK custom alert action | Native Splunk app entry point |
+
+Finding severity scoring (Feature 3) is a deterministic, rule-based
+`ScoringClient` (`scoring/client.py`) — no external LLM dependency. AI
+Assistant for SPL (`saia_generate_spl`) and AI Toolkit (Foundation-Sec-1.1-8B,
+Cisco Deep Time Series) were evaluated but are documented future enhancements
+only; they are not used by the current build.
 
 ## Quick Start
 
@@ -78,7 +81,7 @@ scripts/         # verify_live.py and utilities
 - [x] Feature 0 — Live setup & verification
 - [x] Feature 1 — Synthetic data generator + ingest
 - [x] Feature 2 — McpSplunkClient + Finding/Case/Verdict models
-- [ ] Feature 3 — Foundation-Sec scoring
+- [x] Feature 3 — Rule-based Finding scoring
 - [ ] Feature 4 — Identity Analyst (vertical slice)
 - [ ] Feature 5 — Remaining agents
 - [ ] Feature 6 — Orchestrator

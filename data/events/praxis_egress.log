@@ -1,66 +1,66 @@
-2026-06-09 02:43:18 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.144 dest_ip=85.182.241.72 dest_domain=github.com protocol=HTTPS bytes_out=69847 dest_reputation=high
-2026-06-09 03:24:29 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.233 dest_ip=87.1.219.222 dest_domain=slack.com protocol=HTTPS bytes_out=39094 dest_reputation=high
-2026-06-09 03:27:11 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.115 dest_ip=20.128.72.80 dest_domain=github.com protocol=HTTPS bytes_out=2602 dest_reputation=high
-2026-06-09 03:49:45 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.230 dest_ip=47.129.50.124 dest_domain=google.com protocol=HTTPS bytes_out=119508 dest_reputation=high
-2026-06-09 04:02:44 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.37 dest_ip=185.215.219.142 dest_domain=zoom.us protocol=HTTPS bytes_out=199854 dest_reputation=high
-2026-06-09 05:09:19 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.184 dest_ip=112.16.135.134 dest_domain=microsoft.com protocol=HTTPS bytes_out=36965 dest_reputation=high
-2026-06-09 05:15:07 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.71 dest_ip=81.24.220.239 dest_domain=slack.com protocol=HTTPS bytes_out=163436 dest_reputation=high
-2026-06-09 06:33:26 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.53 dest_ip=191.122.119.225 dest_domain=slack.com protocol=HTTPS bytes_out=174084 dest_reputation=high
-2026-06-09 06:46:17 user=k.muller src_host=WKSTN-MULLER src_ip=10.10.12.67 dest_ip=184.244.206.254 dest_domain=microsoft.com protocol=HTTPS bytes_out=15966 dest_reputation=high
-2026-06-09 06:47:45 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.173 dest_ip=38.132.250.89 dest_domain=google.com protocol=HTTPS bytes_out=185451 dest_reputation=high
-2026-06-09 07:06:49 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.87 dest_ip=185.147.165.81 dest_domain=slack.com protocol=HTTPS bytes_out=111962 dest_reputation=high
-2026-06-09 07:45:06 user=a.smith src_host=WKSTN-SMITH src_ip=10.10.12.160 dest_ip=149.4.219.52 dest_domain=github.com protocol=HTTPS bytes_out=92036 dest_reputation=high
-2026-06-09 08:01:10 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.129 dest_ip=187.241.235.137 dest_domain=zoom.us protocol=HTTPS bytes_out=7298 dest_reputation=high
-2026-06-09 08:18:17 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.245 dest_ip=100.47.141.244 dest_domain=google.com protocol=HTTPS bytes_out=128889 dest_reputation=high
-2026-06-09 08:48:50 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.191 dest_ip=195.221.175.159 dest_domain=salesforce.com protocol=HTTPS bytes_out=19489 dest_reputation=high
-2026-06-09 09:09:06 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.189 dest_ip=110.29.223.168 dest_domain=github.com protocol=HTTPS bytes_out=35459 dest_reputation=high
-2026-06-09 09:18:05 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.13 dest_ip=81.171.71.20 dest_domain=google.com protocol=HTTPS bytes_out=183836 dest_reputation=high
-2026-06-09 09:19:33 user=s.dubois src_host=WKSTN-DUBOIS src_ip=10.10.12.126 dest_ip=171.170.181.191 dest_domain=salesforce.com protocol=HTTPS bytes_out=68951 dest_reputation=high
-2026-06-09 09:41:07 user=k.muller src_host=WKSTN-MULLER src_ip=10.10.12.60 dest_ip=108.1.13.242 dest_domain=slack.com protocol=HTTPS bytes_out=148769 dest_reputation=high
-2026-06-09 09:47:57 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.216 dest_ip=136.41.38.168 dest_domain=slack.com protocol=HTTPS bytes_out=144976 dest_reputation=high
-2026-06-09 12:17:43 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.19 dest_ip=141.23.56.150 dest_domain=salesforce.com protocol=HTTPS bytes_out=29946 dest_reputation=high
-2026-06-09 12:39:00 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.143 dest_ip=22.165.249.161 dest_domain=salesforce.com protocol=HTTPS bytes_out=92559 dest_reputation=high
-2026-06-09 13:24:55 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.141 dest_ip=50.38.122.70 dest_domain=github.com protocol=HTTPS bytes_out=50706 dest_reputation=high
-2026-06-09 13:25:33 user=s.dubois src_host=WKSTN-DUBOIS src_ip=10.10.12.156 dest_ip=192.197.148.242 dest_domain=zoom.us protocol=HTTPS bytes_out=98455 dest_reputation=high
-2026-06-09 13:46:47 user=a.smith src_host=WKSTN-SMITH src_ip=10.10.12.3 dest_ip=32.107.128.196 dest_domain=zoom.us protocol=HTTPS bytes_out=9399 dest_reputation=high
-2026-06-09 13:50:59 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.72 dest_ip=123.209.114.248 dest_domain=microsoft.com protocol=HTTPS bytes_out=117901 dest_reputation=high
-2026-06-09 14:07:06 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.40 dest_ip=149.160.131.151 dest_domain=microsoft.com protocol=HTTPS bytes_out=20727 dest_reputation=high
-2026-06-09 14:16:38 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.80 dest_ip=23.60.112.9 dest_domain=slack.com protocol=HTTPS bytes_out=115965 dest_reputation=high
-2026-06-09 14:33:03 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.141 dest_ip=149.22.75.206 dest_domain=salesforce.com protocol=HTTPS bytes_out=66809 dest_reputation=high
-2026-06-09 15:32:53 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.167 dest_ip=93.44.110.240 dest_domain=salesforce.com protocol=HTTPS bytes_out=177805 dest_reputation=high
-2026-06-09 15:54:16 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.85 dest_ip=20.8.20.26 dest_domain=google.com protocol=HTTPS bytes_out=75860 dest_reputation=high
-2026-06-09 16:31:49 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.14 dest_ip=79.52.46.184 dest_domain=microsoft.com protocol=HTTPS bytes_out=190935 dest_reputation=high
-2026-06-09 18:13:42 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.161 dest_ip=129.85.154.72 dest_domain=zoom.us protocol=HTTPS bytes_out=9463 dest_reputation=high
-2026-06-09 19:36:59 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.68 dest_ip=157.112.191.247 dest_domain=zoom.us protocol=HTTPS bytes_out=126722 dest_reputation=high
-2026-06-09 19:39:04 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.50 dest_ip=24.49.62.142 dest_domain=google.com protocol=HTTPS bytes_out=192805 dest_reputation=high
-2026-06-09 20:03:38 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.31 dest_ip=45.68.229.21 dest_domain=microsoft.com protocol=HTTPS bytes_out=20911 dest_reputation=high
-2026-06-09 20:08:04 user=s.dubois src_host=WKSTN-DUBOIS src_ip=10.10.12.126 dest_ip=38.195.194.56 dest_domain=github.com protocol=HTTPS bytes_out=95840 dest_reputation=high
-2026-06-09 20:09:56 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.153 dest_ip=160.117.74.194 dest_domain=github.com protocol=HTTPS bytes_out=32429 dest_reputation=high
-2026-06-09 20:19:33 user=a.smith src_host=WKSTN-SMITH src_ip=10.10.12.79 dest_ip=77.251.77.87 dest_domain=zoom.us protocol=HTTPS bytes_out=47128 dest_reputation=high
-2026-06-09 20:48:50 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.172 dest_ip=184.105.118.244 dest_domain=github.com protocol=HTTPS bytes_out=8428 dest_reputation=high
-2026-06-09 21:03:38 user=k.muller src_host=WKSTN-MULLER src_ip=10.10.12.202 dest_ip=110.39.213.231 dest_domain=github.com protocol=HTTPS bytes_out=188680 dest_reputation=high
-2026-06-09 21:18:11 user=s.dubois src_host=WKSTN-DUBOIS src_ip=10.10.12.174 dest_ip=142.41.27.29 dest_domain=google.com protocol=HTTPS bytes_out=93708 dest_reputation=high
-2026-06-09 21:39:39 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.249 dest_ip=22.74.149.68 dest_domain=slack.com protocol=HTTPS bytes_out=181246 dest_reputation=high
-2026-06-09 23:33:31 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.33 dest_ip=122.79.170.48 dest_domain=microsoft.com protocol=HTTPS bytes_out=83942 dest_reputation=high
-2026-06-09 23:54:48 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.204 dest_ip=48.163.193.236 dest_domain=slack.com protocol=HTTPS bytes_out=186748 dest_reputation=high
-2026-06-09 23:59:00 user=k.muller src_host=WKSTN-MULLER src_ip=10.10.12.121 dest_ip=182.164.31.249 dest_domain=zoom.us protocol=HTTPS bytes_out=34743 dest_reputation=high
-2026-06-10 01:11:55 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.183 dest_ip=81.149.108.232 dest_domain=google.com protocol=HTTPS bytes_out=181550 dest_reputation=high
-2026-06-10 01:12:34 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.194 dest_ip=115.154.21.178 dest_domain=microsoft.com protocol=HTTPS bytes_out=100900 dest_reputation=high
-2026-06-10 01:12:59 user=s.dubois src_host=WKSTN-DUBOIS src_ip=10.10.12.159 dest_ip=141.92.63.161 dest_domain=salesforce.com protocol=HTTPS bytes_out=29433 dest_reputation=high
-2026-06-10 01:18:50 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.14 dest_ip=132.38.243.120 dest_domain=salesforce.com protocol=HTTPS bytes_out=109548 dest_reputation=high
-2026-06-10 01:26:21 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=32f3c7068e9d48b70b5f066473196f58.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=209 dest_reputation=low subdomain_entropy=4.04
-2026-06-10 01:26:25 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=624996b98aadbd593a8f3da95e83c2c4.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=227 dest_reputation=low subdomain_entropy=4.0
-2026-06-10 01:26:29 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=5186165f23ebcac7d9782038805c4fbf.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=223 dest_reputation=low subdomain_entropy=4.06
-2026-06-10 01:26:33 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=edc00ed9f36988534a2d069f0f883903.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=197 dest_reputation=low subdomain_entropy=4.11
-2026-06-10 01:26:37 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=d7b5f7e230c7204bda6d283b7923441a.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=189 dest_reputation=low subdomain_entropy=3.99
-2026-06-10 01:26:41 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=b75115cddda4150ef5f46bae4d4bc403.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=239 dest_reputation=low subdomain_entropy=4.17
-2026-06-10 01:26:45 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=ad6f21db74f3a849a2b40e2e5a7ef6f6.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=183 dest_reputation=low subdomain_entropy=3.84
-2026-06-10 01:26:49 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=67f001a97d0b226087920092e54e98f9.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=181 dest_reputation=low subdomain_entropy=4.11
-2026-06-10 01:26:53 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=3f5b25a50a09a30193329b9465acd3cd.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=232 dest_reputation=low subdomain_entropy=3.91
-2026-06-10 01:26:57 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=1b3c31664ee568c5c4a6bdb23309b65f.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=193 dest_reputation=low subdomain_entropy=4.18
-2026-06-10 01:27:01 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=24a8b2e88ef54232af780843c02abd50.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=199 dest_reputation=low subdomain_entropy=3.88
-2026-06-10 01:27:05 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=24339305cec4e2b3c4cbc09f0a8b531a.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=183 dest_reputation=low subdomain_entropy=4.17
-2026-06-10 01:27:09 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=dc5559a3a933763fe5989065a3780014.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=194 dest_reputation=low subdomain_entropy=3.8
-2026-06-10 01:27:13 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=5ce3f1b2e14320f662e17c495402ad77.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=210 dest_reputation=low subdomain_entropy=4.05
-2026-06-10 01:27:17 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=215e382e01920c493f768de487be42b5.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=237 dest_reputation=low subdomain_entropy=3.89
-2026-06-10 01:28:21 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=cdn-update-sync.xyz protocol=HTTPS bytes_out=482000000 dest_reputation=low
+2026-06-13 08:31:41 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.144 dest_ip=85.182.241.72 dest_domain=github.com protocol=HTTPS bytes_out=69847 dest_reputation=high
+2026-06-13 09:12:52 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.233 dest_ip=87.1.219.222 dest_domain=slack.com protocol=HTTPS bytes_out=39094 dest_reputation=high
+2026-06-13 09:15:34 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.115 dest_ip=20.128.72.80 dest_domain=github.com protocol=HTTPS bytes_out=2602 dest_reputation=high
+2026-06-13 09:38:08 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.230 dest_ip=47.129.50.124 dest_domain=google.com protocol=HTTPS bytes_out=119508 dest_reputation=high
+2026-06-13 09:51:07 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.37 dest_ip=185.215.219.142 dest_domain=zoom.us protocol=HTTPS bytes_out=199854 dest_reputation=high
+2026-06-13 10:57:42 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.184 dest_ip=112.16.135.134 dest_domain=microsoft.com protocol=HTTPS bytes_out=36965 dest_reputation=high
+2026-06-13 11:03:30 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.71 dest_ip=81.24.220.239 dest_domain=slack.com protocol=HTTPS bytes_out=163436 dest_reputation=high
+2026-06-13 12:21:49 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.53 dest_ip=191.122.119.225 dest_domain=slack.com protocol=HTTPS bytes_out=174084 dest_reputation=high
+2026-06-13 12:34:40 user=k.muller src_host=WKSTN-MULLER src_ip=10.10.12.67 dest_ip=184.244.206.254 dest_domain=microsoft.com protocol=HTTPS bytes_out=15966 dest_reputation=high
+2026-06-13 12:36:08 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.173 dest_ip=38.132.250.89 dest_domain=google.com protocol=HTTPS bytes_out=185451 dest_reputation=high
+2026-06-13 12:55:12 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.87 dest_ip=185.147.165.81 dest_domain=slack.com protocol=HTTPS bytes_out=111962 dest_reputation=high
+2026-06-13 13:33:29 user=a.smith src_host=WKSTN-SMITH src_ip=10.10.12.160 dest_ip=149.4.219.52 dest_domain=github.com protocol=HTTPS bytes_out=92036 dest_reputation=high
+2026-06-13 13:49:33 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.129 dest_ip=187.241.235.137 dest_domain=zoom.us protocol=HTTPS bytes_out=7298 dest_reputation=high
+2026-06-13 14:06:40 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.245 dest_ip=100.47.141.244 dest_domain=google.com protocol=HTTPS bytes_out=128889 dest_reputation=high
+2026-06-13 14:37:13 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.191 dest_ip=195.221.175.159 dest_domain=salesforce.com protocol=HTTPS bytes_out=19489 dest_reputation=high
+2026-06-13 14:57:29 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.189 dest_ip=110.29.223.168 dest_domain=github.com protocol=HTTPS bytes_out=35459 dest_reputation=high
+2026-06-13 15:06:28 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.13 dest_ip=81.171.71.20 dest_domain=google.com protocol=HTTPS bytes_out=183836 dest_reputation=high
+2026-06-13 15:07:56 user=s.dubois src_host=WKSTN-DUBOIS src_ip=10.10.12.126 dest_ip=171.170.181.191 dest_domain=salesforce.com protocol=HTTPS bytes_out=68951 dest_reputation=high
+2026-06-13 15:29:30 user=k.muller src_host=WKSTN-MULLER src_ip=10.10.12.60 dest_ip=108.1.13.242 dest_domain=slack.com protocol=HTTPS bytes_out=148769 dest_reputation=high
+2026-06-13 15:36:20 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.216 dest_ip=136.41.38.168 dest_domain=slack.com protocol=HTTPS bytes_out=144976 dest_reputation=high
+2026-06-13 18:06:06 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.19 dest_ip=141.23.56.150 dest_domain=salesforce.com protocol=HTTPS bytes_out=29946 dest_reputation=high
+2026-06-13 18:27:23 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.143 dest_ip=22.165.249.161 dest_domain=salesforce.com protocol=HTTPS bytes_out=92559 dest_reputation=high
+2026-06-13 19:13:18 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.141 dest_ip=50.38.122.70 dest_domain=github.com protocol=HTTPS bytes_out=50706 dest_reputation=high
+2026-06-13 19:13:56 user=s.dubois src_host=WKSTN-DUBOIS src_ip=10.10.12.156 dest_ip=192.197.148.242 dest_domain=zoom.us protocol=HTTPS bytes_out=98455 dest_reputation=high
+2026-06-13 19:35:10 user=a.smith src_host=WKSTN-SMITH src_ip=10.10.12.3 dest_ip=32.107.128.196 dest_domain=zoom.us protocol=HTTPS bytes_out=9399 dest_reputation=high
+2026-06-13 19:39:22 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.72 dest_ip=123.209.114.248 dest_domain=microsoft.com protocol=HTTPS bytes_out=117901 dest_reputation=high
+2026-06-13 19:55:29 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.40 dest_ip=149.160.131.151 dest_domain=microsoft.com protocol=HTTPS bytes_out=20727 dest_reputation=high
+2026-06-13 20:05:01 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.80 dest_ip=23.60.112.9 dest_domain=slack.com protocol=HTTPS bytes_out=115965 dest_reputation=high
+2026-06-13 20:21:26 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.141 dest_ip=149.22.75.206 dest_domain=salesforce.com protocol=HTTPS bytes_out=66809 dest_reputation=high
+2026-06-13 21:21:16 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.167 dest_ip=93.44.110.240 dest_domain=salesforce.com protocol=HTTPS bytes_out=177805 dest_reputation=high
+2026-06-13 21:42:39 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.85 dest_ip=20.8.20.26 dest_domain=google.com protocol=HTTPS bytes_out=75860 dest_reputation=high
+2026-06-13 22:20:12 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.14 dest_ip=79.52.46.184 dest_domain=microsoft.com protocol=HTTPS bytes_out=190935 dest_reputation=high
+2026-06-14 00:02:05 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.161 dest_ip=129.85.154.72 dest_domain=zoom.us protocol=HTTPS bytes_out=9463 dest_reputation=high
+2026-06-14 01:25:22 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.68 dest_ip=157.112.191.247 dest_domain=zoom.us protocol=HTTPS bytes_out=126722 dest_reputation=high
+2026-06-14 01:27:27 user=r.patel src_host=WKSTN-PATEL src_ip=10.10.12.50 dest_ip=24.49.62.142 dest_domain=google.com protocol=HTTPS bytes_out=192805 dest_reputation=high
+2026-06-14 01:52:01 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.31 dest_ip=45.68.229.21 dest_domain=microsoft.com protocol=HTTPS bytes_out=20911 dest_reputation=high
+2026-06-14 01:56:27 user=s.dubois src_host=WKSTN-DUBOIS src_ip=10.10.12.126 dest_ip=38.195.194.56 dest_domain=github.com protocol=HTTPS bytes_out=95840 dest_reputation=high
+2026-06-14 01:58:19 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.153 dest_ip=160.117.74.194 dest_domain=github.com protocol=HTTPS bytes_out=32429 dest_reputation=high
+2026-06-14 02:07:56 user=a.smith src_host=WKSTN-SMITH src_ip=10.10.12.79 dest_ip=77.251.77.87 dest_domain=zoom.us protocol=HTTPS bytes_out=47128 dest_reputation=high
+2026-06-14 02:37:13 user=h.yamamoto src_host=WKSTN-YAMAMOTO src_ip=10.10.12.172 dest_ip=184.105.118.244 dest_domain=github.com protocol=HTTPS bytes_out=8428 dest_reputation=high
+2026-06-14 02:52:01 user=k.muller src_host=WKSTN-MULLER src_ip=10.10.12.202 dest_ip=110.39.213.231 dest_domain=github.com protocol=HTTPS bytes_out=188680 dest_reputation=high
+2026-06-14 03:06:34 user=s.dubois src_host=WKSTN-DUBOIS src_ip=10.10.12.174 dest_ip=142.41.27.29 dest_domain=google.com protocol=HTTPS bytes_out=93708 dest_reputation=high
+2026-06-14 03:28:02 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.249 dest_ip=22.74.149.68 dest_domain=slack.com protocol=HTTPS bytes_out=181246 dest_reputation=high
+2026-06-14 05:21:54 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.33 dest_ip=122.79.170.48 dest_domain=microsoft.com protocol=HTTPS bytes_out=83942 dest_reputation=high
+2026-06-14 05:43:11 user=t.nguyen src_host=WKSTN-NGUYEN src_ip=10.10.12.204 dest_ip=48.163.193.236 dest_domain=slack.com protocol=HTTPS bytes_out=186748 dest_reputation=high
+2026-06-14 05:47:23 user=k.muller src_host=WKSTN-MULLER src_ip=10.10.12.121 dest_ip=182.164.31.249 dest_domain=zoom.us protocol=HTTPS bytes_out=34743 dest_reputation=high
+2026-06-14 07:00:18 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.183 dest_ip=81.149.108.232 dest_domain=google.com protocol=HTTPS bytes_out=181550 dest_reputation=high
+2026-06-14 07:00:57 user=l.garcia src_host=WKSTN-GARCIA src_ip=10.10.12.194 dest_ip=115.154.21.178 dest_domain=microsoft.com protocol=HTTPS bytes_out=100900 dest_reputation=high
+2026-06-14 07:01:22 user=s.dubois src_host=WKSTN-DUBOIS src_ip=10.10.12.159 dest_ip=141.92.63.161 dest_domain=salesforce.com protocol=HTTPS bytes_out=29433 dest_reputation=high
+2026-06-14 07:07:13 user=e.osei src_host=WKSTN-OSEI src_ip=10.10.12.14 dest_ip=132.38.243.120 dest_domain=salesforce.com protocol=HTTPS bytes_out=109548 dest_reputation=high
+2026-06-14 07:14:44 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=32f3c7068e9d48b70b5f066473196f58.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=209 dest_reputation=low subdomain_entropy=4.04
+2026-06-14 07:14:48 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=624996b98aadbd593a8f3da95e83c2c4.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=227 dest_reputation=low subdomain_entropy=4.0
+2026-06-14 07:14:52 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=5186165f23ebcac7d9782038805c4fbf.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=223 dest_reputation=low subdomain_entropy=4.06
+2026-06-14 07:14:56 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=edc00ed9f36988534a2d069f0f883903.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=197 dest_reputation=low subdomain_entropy=4.11
+2026-06-14 07:15:00 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=d7b5f7e230c7204bda6d283b7923441a.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=189 dest_reputation=low subdomain_entropy=3.99
+2026-06-14 07:15:04 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=b75115cddda4150ef5f46bae4d4bc403.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=239 dest_reputation=low subdomain_entropy=4.17
+2026-06-14 07:15:08 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=ad6f21db74f3a849a2b40e2e5a7ef6f6.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=183 dest_reputation=low subdomain_entropy=3.84
+2026-06-14 07:15:12 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=67f001a97d0b226087920092e54e98f9.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=181 dest_reputation=low subdomain_entropy=4.11
+2026-06-14 07:15:16 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=3f5b25a50a09a30193329b9465acd3cd.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=232 dest_reputation=low subdomain_entropy=3.91
+2026-06-14 07:15:20 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=1b3c31664ee568c5c4a6bdb23309b65f.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=193 dest_reputation=low subdomain_entropy=4.18
+2026-06-14 07:15:24 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=24a8b2e88ef54232af780843c02abd50.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=199 dest_reputation=low subdomain_entropy=3.88
+2026-06-14 07:15:28 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=24339305cec4e2b3c4cbc09f0a8b531a.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=183 dest_reputation=low subdomain_entropy=4.17
+2026-06-14 07:15:32 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=dc5559a3a933763fe5989065a3780014.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=194 dest_reputation=low subdomain_entropy=3.8
+2026-06-14 07:15:36 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=5ce3f1b2e14320f662e17c495402ad77.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=210 dest_reputation=low subdomain_entropy=4.05
+2026-06-14 07:15:40 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=215e382e01920c493f768de487be42b5.cdn-update-sync.xyz protocol=DNS query_type=TXT bytes_out=237 dest_reputation=low subdomain_entropy=3.89
+2026-06-14 07:16:44 user=j.okonkwo src_host=FS01 src_ip=10.10.20.10 dest_ip=203.0.113.77 dest_domain=cdn-update-sync.xyz protocol=HTTPS bytes_out=482000000 dest_reputation=low

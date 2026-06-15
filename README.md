@@ -107,20 +107,6 @@ data/            # Synthetic attack dataset generator
 scripts/         # verify_live.py and utilities
 ```
 
-## Feature Status
-
-- [x] Feature 0 — Live setup & verification
-- [x] Feature 1 — Synthetic data generator + ingest
-- [x] Feature 2 — McpSplunkClient + Finding/Case/Verdict models
-- [x] Feature 3 — Rule-based Finding scoring
-- [x] Feature 4 — Identity Analyst (vertical slice)
-- [x] Feature 5 — Remaining agents
-- [x] Feature 6 — Orchestrator
-- [x] Feature 7 — FastAPI backend
-- [x] Feature 8 — React UI
-- [x] Feature 9 — Native Splunk app
-- [ ] Feature 10 — Polish + demo recording
-
 ## License
 
 MIT

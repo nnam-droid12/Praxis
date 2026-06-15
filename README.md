@@ -85,7 +85,7 @@ scripts/         # verify_live.py and utilities
 - [x] Feature 4 — Identity Analyst (vertical slice)
 - [x] Feature 5 — Remaining agents
 - [x] Feature 6 — Orchestrator
-- [ ] Feature 7 — FastAPI backend
+- [x] Feature 7 — FastAPI backend
 - [ ] Feature 8 — React UI
 - [ ] Feature 9 — Native Splunk app
 - [ ] Feature 10 — Polish + demo recording

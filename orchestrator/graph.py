@@ -11,7 +11,7 @@ Usage:
 from __future__ import annotations
 
 import operator
-from typing import Annotated, TypedDict
+from typing import Annotated, AsyncIterator, TypedDict
 
 from langgraph.graph import END, START, StateGraph
 
@@ -69,18 +69,34 @@ def _build_graph(splunk: McpSplunkClient):
     return graph.compile()
 
 
+def _initial_state(user: str, earliest_time: str) -> CaseState:
+    return {
+        "user": user,
+        "earliest_time": earliest_time,
+        "findings": [],
+        "case": None,
+        "verdict": None,
+    }
+
+
 async def run_case(
     splunk: McpSplunkClient, user: str, earliest_time: str = "-24h"
 ) -> tuple[Case, Verdict]:
     """Fan out to all 5 specialist agents for `user`, then synthesize a Verdict."""
     compiled = _build_graph(splunk)
-    result = await compiled.ainvoke(
-        {
-            "user": user,
-            "earliest_time": earliest_time,
-            "findings": [],
-            "case": None,
-            "verdict": None,
-        }
-    )
+    result = await compiled.ainvoke(_initial_state(user, earliest_time))
     return result["case"], result["verdict"]
+
+
+async def stream_case(
+    splunk: McpSplunkClient, user: str, earliest_time: str = "-24h"
+) -> AsyncIterator[tuple[str, dict]]:
+    """Like `run_case`, but yield `(node_name, output)` as each node completes.
+
+    `node_name` is one of the 5 agent names (output: `{"findings": [...]}`)
+    or "correlation_lead" (output: `{"case": Case, "verdict": Verdict}`).
+    """
+    compiled = _build_graph(splunk)
+    async for update in compiled.astream(_initial_state(user, earliest_time), stream_mode="updates"):
+        for node_name, output in update.items():
+            yield node_name, output

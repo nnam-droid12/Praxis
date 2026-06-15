@@ -3,3 +3,5 @@ python-dotenv
 pydantic>=2
 anthropic
 langgraph
+fastapi
+uvicorn

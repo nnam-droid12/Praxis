@@ -21,6 +21,7 @@ class KillChainStep(BaseModel):
     timestamp: datetime
     description: str
     finding_ids: list[str] = Field(default_factory=list)
+    user: str | None = None
 
 
 class Verdict(BaseModel):

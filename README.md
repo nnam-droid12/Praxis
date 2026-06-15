@@ -61,10 +61,15 @@ low-severity signals form **one coordinated campaign**.
 | Rogue/evil-twin Wi-Fi AP detection | Lateral Movement agent flags Wi-Fi associations to unrecognized BSSIDs broadcasting the corporate SSID |
 | Real-time investigation console | React SSE UI streams each agent's findings live, then the final verdict + kill-chain timeline |
 | Closed-loop alerting | A native Splunk custom alert action runs the full pipeline on `Praxis - *` saved-search alerts and writes the verdict back via HEC |
+| Campaign Hunter — cross-user correlation | Cross-user SPL `stats`/`dc(user)` queries find one indicator of compromise (rogue AP, shared exfil destination, shared persistence artifact) touching 2+ accounts, fan out the full 5-agent investigation per affected user, and roll the results into one `CampaignVerdict` |
 
 **Defining demo moment:** 5 individually-low-severity alerts → ONE
 high-confidence "active intrusion in progress" verdict with a reconstructed
 kill-chain timeline.
+
+**Campaign Hunter demo moment:** one rogue access point → two compromised
+accounts → two individual verdicts → ONE campaign verdict tying them
+together.
 
 ## Architecture
 
@@ -130,6 +135,26 @@ agents report HIGH/CRITICAL, `SUSPICIOUS` for 1-2 or any MEDIUM, otherwise
 | **Persistence** | Unsigned scheduled tasks running obfuscated PowerShell | `praxis:endpoint` (`action=scheduled_task_created`) | `signed`, encoded command lines |
 | **Devil's Advocate** | Mitigating evidence for the above (travel records, change tickets) | re-runs `praxis:auth` + `praxis:endpoint` queries | `travel_record`, `change_ticket` |
 
+### Campaign Hunter — Cross-User Correlation
+
+`agents/campaign_hunter.py`'s `CampaignHunterAgent` runs three cross-user SPL
+`stats`/`dc(user)` queries — deliberately **without** a `user=` filter — to
+find indicators of compromise shared by 2+ accounts:
+
+| Indicator | SPL pattern | Example |
+|---|---|---|
+| Rogue/evil-twin Wi-Fi AP | `praxis:wifi action=wifi_association known_bssid=false`, grouped by `bssid` | Two accounts both associate to the same unrecognized BSSID |
+| Shared low-reputation exfil destination | `praxis:egress dest_reputation=low`, grouped by `dest_domain` | Two accounts both exfiltrate to the same low-reputation domain |
+| Shared unsigned persistence artifact | `praxis:endpoint action=scheduled_task_created signed=false`, grouped by `task_name` | Two accounts both have the same unsigned scheduled task |
+
+For every cluster where `dc(user) > 1`, `orchestrator/campaign.py`'s
+`hunt_campaigns()` runs the standard 5-agent `run_case()` investigation for
+every affected user and merges the results into one `CampaignVerdict`:
+campaign-level severity is the max of the per-user verdicts, and
+`combined_kill_chain` interleaves every user's kill-chain steps (each tagged
+with `user`) in chronological order. Exposed via `GET /campaigns` and the
+"Campaign Hunter" tab in the React console.
+
 ### Tool Registry — `McpSplunkClient`
 
 `splunk/mcp_client.py` is the **only** Splunk interface used by any agent —
@@ -191,7 +216,7 @@ API.
 | # | Feature | Status |
 |---|---|---|
 | 0 | Live Splunk MCP connectivity verification | ✅ |
-| 1 | Synthetic attack dataset — 251 events across 5 sourcetypes | ✅ |
+| 1 | Synthetic attack dataset — 252 events across 5 sourcetypes | ✅ |
 | 2 | `McpSplunkClient` + `Finding`/`Case`/`Verdict` models | ✅ |
 | 3 | Rule-based `ScoringClient` | ✅ |
 | 4 | Identity Analyst agent (impossible travel, MFA fatigue) | ✅ |
@@ -201,6 +226,7 @@ API.
 | 8 | React Investigation Console | ✅ |
 | 9 | Native Splunk alert action (closed loop via HEC) | ✅ |
 | — | Rogue/evil-twin Wi-Fi access-point detection | ✅ |
+| — | Campaign Hunter — cross-user correlation (`GET /campaigns`) | ✅ |
 
 ## Tech Stack
 
@@ -260,12 +286,13 @@ API.
 ## Dataset Setup
 
 `data/gen_scenario.py` is a deterministic generator (`random.seed(1337)`)
-that produces 251 events across 5 sourcetypes — `praxis:auth`,
+that produces 252 events across 5 sourcetypes — `praxis:auth`,
 `praxis:network`, `praxis:endpoint`, `praxis:egress`, `praxis:wifi` — into
 `data/events/*.jsonl`, including a planted multi-stage attack campaign for
 user `j.okonkwo` (rogue Wi-Fi association → impossible-travel login → MFA
-fatigue → lateral movement → persistence → exfiltration) plus benign noise
-for other users.
+fatigue → lateral movement → persistence → exfiltration), a second account
+`e.osei` associating to that **same** rogue access point (the cross-user
+indicator Campaign Hunter correlates on), plus benign noise for other users.
 
 ```bash
 python data/gen_scenario.py        # regenerate data/events/*.jsonl
@@ -319,7 +346,7 @@ scripts/         # verify_live.py and other verification/utility scripts
 | Synthetic — Network | `praxis:network` | 52 | Cross-protocol file-server access |
 | Synthetic — Endpoint | `praxis:endpoint` | 52 | Scheduled tasks, signed/unsigned binaries, encoded commands |
 | Synthetic — Egress | `praxis:egress` | 66 | Outbound transfers, DNS tunneling, destination reputation |
-| Synthetic — Wi-Fi | `praxis:wifi` | 22 | Access-point associations, known/unknown BSSID inventory |
+| Synthetic — Wi-Fi | `praxis:wifi` | 23 | Access-point associations, known/unknown BSSID inventory |
 | Real-world grounding | — | — | [Splunk Dubai Airports case study](https://www.splunk.com/en_us/customers/success-stories/dubai-airports.html) — inspiration for the rogue/evil-twin Wi-Fi AP detection |
 
 ## Example Investigations
@@ -337,6 +364,14 @@ surfacing a `travel_record`/`change_ticket` dissenting view:
 
 ```bash
 curl -N "http://localhost:8000/investigate/m.okafor?earliest_time=-7d"
+```
+
+Hunt for cross-user campaigns — expect one `rogue_access_point` campaign
+linking `j.okonkwo` (`active_intrusion`) and `e.osei` (`suspicious`) via the
+shared evil-twin BSSID, with a merged, per-user-tagged kill chain:
+
+```bash
+curl "http://localhost:8000/campaigns?earliest_time=-7d"
 ```
 
 ## Hackathon

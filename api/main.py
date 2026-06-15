@@ -20,7 +20,7 @@ from fastapi.responses import StreamingResponse
 
 load_dotenv()
 
-from orchestrator import run_case  # noqa: E402, F401  (re-exported for convenience)
+from orchestrator import hunt_campaigns, run_case  # noqa: E402, F401  (re-exported for convenience)
 from orchestrator.graph import stream_case  # noqa: E402
 from splunk import McpSplunkClient  # noqa: E402
 
@@ -43,6 +43,14 @@ async def health() -> dict[str, str]:
 async def investigate(user: str, earliest_time: str = "-24h") -> StreamingResponse:
     """Stream a live multi-agent investigation for `user` as SSE."""
     return StreamingResponse(_event_stream(user, earliest_time), media_type="text/event-stream")
+
+
+@app.get("/campaigns")
+async def campaigns(earliest_time: str = "-7d") -> dict:
+    """Find cross-user campaigns and investigate every affected user."""
+    async with McpSplunkClient() as splunk:
+        results = await hunt_campaigns(splunk, earliest_time)
+    return {"campaigns": [c.model_dump(mode="json") for c in results]}
 
 
 async def _event_stream(user: str, earliest_time: str) -> AsyncIterator[str]:

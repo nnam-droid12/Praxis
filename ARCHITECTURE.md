@@ -36,20 +36,33 @@ flowchart TB
         SCORER["ScoringClient<br/>rule-based severity + confidence<br/>scoring/"]
         CL["CorrelationLead<br/>fan-in -> Verdict + kill chain<br/>orchestrator/correlation_lead.py"]
 
+        subgraph CAMPAIGN["Campaign Hunter — cross-user correlation"]
+            CH["CampaignHunterAgent<br/>cross-user stats/dc(user) SPL<br/>agents/campaign_hunter.py"]
+            HUNT["hunt_campaigns()<br/>orchestrator/campaign.py"]
+        end
+
         CLIENT <--> MCP
         AGENTS -- "hand-written SPL per agent" --> CLIENT
         AGENTS --> SCORER --> CL
+        CH -- "cross-user SPL" --> CLIENT
+        CH --> HUNT
+        HUNT -- "run_case() per affected user" --> AGENTS
+        CL -.->|"per-user Verdicts"| HUNT
     end
 
     subgraph API["FastAPI backend — api/"]
         SSE["GET /investigate/{user}<br/>Server-Sent Events"]
+        CAMPAPI["GET /campaigns<br/>JSON"]
     end
     CL --> SSE
+    HUNT --> CAMPAPI
 
     subgraph UI["React console — ui/"]
         PANELS["Agent panels + Verdict panel"]
+        CHTAB["Campaign Hunter tab"]
     end
     PANELS -- "start investigation" --> SSE --> PANELS
+    CHTAB -- "scan for campaigns" --> CAMPAPI --> CHTAB
     SSE -.-> AGENTS
 
     subgraph ALERT["Native alert action — splunk_app/praxis_alert_action/"]
@@ -100,6 +113,17 @@ The same graph is invoked from two callers: the FastAPI SSE endpoint
 (`api/main.py`, for the interactive UI) and the native alert-action runner
 (`scripts/run_alert_investigation.py`, for the closed loop below).
 
+4. **Cross-user correlation** — `CampaignHunterAgent`
+   (`agents/campaign_hunter.py`) runs the same kind of hand-written SPL, but
+   *without* a per-user filter: cross-user `stats` / `dc(user)` queries find
+   one indicator of compromise (rogue access point, shared exfiltration
+   destination, shared persistence artifact) touching 2+ accounts.
+   `hunt_campaigns` (`orchestrator/campaign.py`) takes each match, re-runs
+   the full 5-agent graph above via `run_case` for every affected user, and
+   merges the resulting per-user `Verdict`s into one `CampaignVerdict` — its
+   `level` is the max of the per-user levels and its `combined_kill_chain` is
+   the union of every user's kill chain, each step tagged with `user`.
+
 ## Closed loop: Splunk alert -> investigation -> Splunk verdict
 
 ```mermaid
@@ -144,4 +168,14 @@ Splunk saved-search alert ("Praxis - *")
   -> scripts/run_alert_investigation.py
        -> same orchestrator pipeline as above
        -> HEC POST -> sourcetype=praxis:verdict (back into index=main)
+
+User (browser)
+  -> React console (ui/, Vite dev server :5173) "Campaign Hunter" tab
+  -> FastAPI (api/main.py, :8000) GET /campaigns  [JSON]
+  -> hunt_campaigns (orchestrator/campaign.py)
+       -> CampaignHunterAgent (agents/campaign_hunter.py)
+            -> McpSplunkClient -> cross-user stats/dc(user) SPL -> Splunk index=main
+       -> for each affected user: run_case (same pipeline as /investigate)
+       -> merge per-user Verdicts -> CampaignVerdict (level, summary, combined kill chain)
+  <- single JSON response with one CampaignVerdict per detected campaign
 ```

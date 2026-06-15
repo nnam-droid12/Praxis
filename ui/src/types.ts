@@ -36,6 +36,7 @@ export interface KillChainStep {
   timestamp: string;
   description: string;
   finding_ids: string[];
+  user?: string | null;
 }
 
 export interface Verdict {
@@ -58,6 +59,26 @@ export interface FindingEvent {
 export interface VerdictEvent {
   case: Case;
   verdict: Verdict;
+}
+
+// GET /campaigns — mirrors models/campaign.py
+export interface Campaign {
+  id: string;
+  indicator_type: string;
+  indicator_label: string;
+  indicator_value: string;
+  users: string[];
+  details: Record<string, unknown>;
+  created_at: string;
+}
+
+export interface CampaignVerdict {
+  campaign: Campaign;
+  level: VerdictLevel;
+  summary: string;
+  user_verdicts: Record<string, Verdict>;
+  combined_kill_chain: KillChainStep[];
+  created_at: string;
 }
 
 export const AGENT_ORDER = [

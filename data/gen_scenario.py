@@ -6,6 +6,8 @@ combined file, containing:
   - The planted APT campaign: 6 stages, all tied to user j.okonkwo,
     spanning a 25-minute window, starting with credential theft via a
     rogue Wi-Fi access point and a host pivot WKSTN-OKONKWO -> FS01.
+  - Stage 0b: a second account, e.osei, also associates to the SAME rogue
+    AP as Stage 0 - a cross-user IOC for Campaign Hunter's correlation.
   - 2 false-alarm scenarios (for the Devil's Advocate agent).
   - 200+ benign noise events spread across the last 24 hours, including
     Wi-Fi associations to known/authorized access points.
@@ -53,6 +55,14 @@ add(CAMPAIGN_START - timedelta(minutes=3), "praxis:wifi",
     user="j.okonkwo", host="WKSTN-OKONKWO", action="wifi_association",
     ssid="CorpWiFi-Secure", bssid="DE:AD:BE:EF:00:01", known_bssid="false",
     ap_vendor="Unknown-OEM", security="Open", signal_strength_dbm=-38, channel=6)
+
+# Stage 0b - Campaign Hunter: a second account, e.osei, also associates to
+# the SAME rogue/evil-twin AP a few minutes later - the shared BSSID is the
+# cross-user indicator Campaign Hunter correlates on.
+add(CAMPAIGN_START + timedelta(minutes=1), "praxis:wifi",
+    user="e.osei", host="WKSTN-OSEI", action="wifi_association",
+    ssid="CorpWiFi-Secure", bssid="DE:AD:BE:EF:00:01", known_bssid="false",
+    ap_vendor="Unknown-OEM", security="Open", signal_strength_dbm=-41, channel=6)
 
 # Stage 1 - Identity: impossible travel login (London -> Moscow in 11 min)
 add(CAMPAIGN_START, "praxis:auth",

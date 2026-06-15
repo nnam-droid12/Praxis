@@ -29,6 +29,9 @@ app = FastAPI(title="Praxis Investigation API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173"],
+    # Vercel-hosted UI builds (frontend-only deploy) calling back into this
+    # locally-running backend on the same machine.
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_methods=["GET"],
     allow_headers=["*"],
 )

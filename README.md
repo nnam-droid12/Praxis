@@ -29,8 +29,9 @@ Orchestrator (LangGraph)
       ▼
 Correlation Lead → verdict + kill-chain + confidence score
       │
-      ▼
-FastAPI SSE stream ──► React "Investigation Console"
+      ├──► FastAPI SSE stream ──► React "Investigation Console"
+      │
+      └──► HEC: sourcetype=praxis:verdict (closes the loop back into Splunk)
 ```
 
 ## Splunk Capabilities Used
@@ -38,7 +39,8 @@ FastAPI SSE stream ──► React "Investigation Console"
 | Capability | Where |
 |---|---|
 | MCP Server (app 7931) | All Splunk reads — `splunk_run_query`, `splunk_run_saved_search` |
-| Python SDK custom alert action | Native Splunk app entry point |
+| Custom alert action (`alert_actions.conf`, `payload_format = json`) | `splunk_app/praxis_alert_action/` — fires on `Praxis - *` saved searches |
+| HTTP Event Collector (HEC) write-back | `sourcetype=praxis:verdict` — Correlation Lead verdicts written back into Splunk |
 
 Finding severity scoring (Feature 3) is a deterministic, rule-based
 `ScoringClient` (`scoring/client.py`) — no external LLM dependency. AI
@@ -73,6 +75,24 @@ If the backend isn't on `http://localhost:8000`, point the UI at it via
 VITE_API_BASE=http://localhost:8800
 ```
 
+## Native Splunk Alert Action (Feature 9)
+
+`splunk_app/praxis_alert_action/` is a custom alert action: when a
+`Praxis - *` saved-search alert fires, it fans out to Praxis's 5 specialist
+agents for the triggering user(s) and writes the Correlation Lead's verdict
+back into Splunk as `sourcetype=praxis:verdict` — closing the loop from
+"alert fires" to "investigated and answered" without leaving Splunk.
+
+Install steps and configuration are in
+[`splunk_app/praxis_alert_action/README.md`](splunk_app/praxis_alert_action/README.md).
+To verify the whole flow end-to-end against live Splunk without installing
+the app (builds a real gzip-CSV `results_file` from a live query, runs both
+the launcher and the runner, and confirms the `praxis:verdict` events land):
+
+```bash
+python scripts/verify_alert_action.py
+```
+
 ## Project Structure
 
 ```
@@ -98,7 +118,7 @@ scripts/         # verify_live.py and utilities
 - [x] Feature 6 — Orchestrator
 - [x] Feature 7 — FastAPI backend
 - [x] Feature 8 — React UI
-- [ ] Feature 9 — Native Splunk app
+- [x] Feature 9 — Native Splunk app
 - [ ] Feature 10 — Polish + demo recording
 
 ## License

@@ -1,12 +1,14 @@
 """
 gen_scenario.py - Praxis synthetic attack dataset generator.
 
-Produces 4 ingestable log files (one per sourcetype) plus a HEC-format
+Produces 5 ingestable log files (one per sourcetype) plus a HEC-format
 combined file, containing:
-  - The planted APT campaign: 5 stages, all tied to user j.okonkwo,
-    spanning a 22-minute window, with a host pivot WKSTN-OKONKWO -> FS01.
+  - The planted APT campaign: 6 stages, all tied to user j.okonkwo,
+    spanning a 25-minute window, starting with credential theft via a
+    rogue Wi-Fi access point and a host pivot WKSTN-OKONKWO -> FS01.
   - 2 false-alarm scenarios (for the Devil's Advocate agent).
-  - 200 benign noise events spread across the last 24 hours.
+  - 200+ benign noise events spread across the last 24 hours, including
+    Wi-Fi associations to known/authorized access points.
 
 Run:
     python data/gen_scenario.py
@@ -16,6 +18,7 @@ Output:
     data/events/praxis_network.log
     data/events/praxis_endpoint.log
     data/events/praxis_egress.log
+    data/events/praxis_wifi.log
     data/events/hec_events.jsonl
 """
 
@@ -39,9 +42,17 @@ def add(t: datetime, sourcetype: str, **fields) -> None:
 
 
 # ---------------------------------------------------------------------------
-# THE PLANTED CAMPAIGN - j.okonkwo, 22-minute window, 5 stages
+# THE PLANTED CAMPAIGN - j.okonkwo, 25-minute window, 6 stages
 # ---------------------------------------------------------------------------
 CAMPAIGN_START = NOW - timedelta(minutes=35)
+
+# Stage 0 - Lateral Movement: laptop associates to a rogue/evil-twin AP
+# broadcasting the corporate SSID from an unrecognized BSSID (the likely
+# credential-theft vector behind Stage 1's "impossible travel" login).
+add(CAMPAIGN_START - timedelta(minutes=3), "praxis:wifi",
+    user="j.okonkwo", host="WKSTN-OKONKWO", action="wifi_association",
+    ssid="CorpWiFi-Secure", bssid="DE:AD:BE:EF:00:01", known_bssid="false",
+    ap_vendor="Unknown-OEM", security="Open", signal_strength_dbm=-38, channel=6)
 
 # Stage 1 - Identity: impossible travel login (London -> Moscow in 11 min)
 add(CAMPAIGN_START, "praxis:auth",
@@ -107,6 +118,10 @@ add(NOW - timedelta(hours=1), "praxis:auth",
     src_ip="175.45.16.88", src_country="SG", src_city="Singapore", host="LAPTOP-OKAFOR",
     prev_country="GB", prev_city="London", prev_login_minutes_ago=540,
     geo_velocity_kmh=1206, travel_record="CONFIRMED-TRV-2026-0091")
+add(NOW - timedelta(hours=1, minutes=5), "praxis:wifi",
+    user="m.okafor", host="LAPTOP-OKAFOR", action="wifi_association",
+    ssid="CorpWiFi-Secure", bssid="AA:BB:CC:00:01:02", known_bssid="true",
+    ap_vendor="Cisco Meraki", security="WPA2-Enterprise", signal_strength_dbm=-52, channel=11)
 
 
 # ---------------------------------------------------------------------------
@@ -170,6 +185,17 @@ for _ in range(50):
         dest_domain=random.choice(GOOD_DOMAINS), protocol="HTTPS",
         bytes_out=random.randint(2000, 200000), dest_reputation="high")
 
+# Wi-Fi associations to known/authorized corporate access points (no rogue-AP signal).
+KNOWN_BSSIDS = ["AA:BB:CC:00:01:01", "AA:BB:CC:00:01:02", "AA:BB:CC:00:01:03"]
+WIFI_HOSTS = {**BENIGN_HOSTS, "it.admin": "WKSTN-ITADMIN"}
+for _ in range(20):
+    user = random.choice(list(WIFI_HOSTS))
+    add(random_recent_time(), "praxis:wifi",
+        user=user, host=WIFI_HOSTS[user], action="wifi_association",
+        ssid="CorpWiFi-Secure", bssid=random.choice(KNOWN_BSSIDS), known_bssid="true",
+        ap_vendor="Cisco Meraki", security="WPA2-Enterprise",
+        signal_strength_dbm=random.randint(-70, -45), channel=random.choice([1, 6, 11]))
+
 
 # ---------------------------------------------------------------------------
 # WRITE OUTPUT
@@ -187,7 +213,7 @@ def fmt_kv(fields: dict) -> str:
     return " ".join(parts)
 
 
-SOURCETYPES = ["praxis:auth", "praxis:network", "praxis:endpoint", "praxis:egress"]
+SOURCETYPES = ["praxis:auth", "praxis:network", "praxis:endpoint", "praxis:egress", "praxis:wifi"]
 
 for st in SOURCETYPES:
     rows = sorted((e for e in events if e["sourcetype"] == st), key=lambda e: e["time"])

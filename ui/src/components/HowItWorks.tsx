@@ -2,7 +2,7 @@ import { AGENT_ORDER, AGENT_LABELS } from "../types";
 
 const AGENT_DESCRIPTIONS: Record<string, string> = {
   identity_analyst: "Impossible-travel logins and MFA push-bombing",
-  lateral_movement: "Cross-protocol file-server access and bytes-out spikes",
+  lateral_movement: "Cross-protocol file-server access and rogue Wi-Fi access points",
   exfiltration: "DNS tunneling and high-volume egress to low-reputation hosts",
   persistence: "Unsigned scheduled tasks running obfuscated PowerShell",
   devils_advocate: "Hunts for mitigating evidence — travel records, change tickets",

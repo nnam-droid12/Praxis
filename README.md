@@ -8,9 +8,23 @@ A real SOC drowns in alerts; ~95% are noise. Dangerous multi-stage intrusions st
 
 ## What Praxis Does
 
-Praxis deploys **6 specialist AI agents** that examine alerts concurrently, each through one attack discipline. A Correlation Lead synthesizes all findings to decide whether scattered low-severity alerts form **one coordinated campaign**.
+Praxis deploys **5 specialist AI agents** that examine alerts concurrently, each through one attack discipline. A Correlation Lead synthesizes all findings to decide whether scattered low-severity alerts form **one coordinated campaign**.
 
 **Defining demo moment:** 5 individually-low-severity alerts → ONE high-confidence "active intrusion in progress" verdict with a reconstructed kill-chain timeline.
+
+## Real-World Grounding: Rogue Access-Point Detection
+
+Splunk's [Dubai Airports case study](https://www.splunk.com/en_us/customers/success-stories/dubai-airports.html)
+describes monitoring 200+ Wi-Fi access points and up to 20,000 simultaneous
+connections — including detecting **rogue hotspots** that degrade service
+and pose a security risk at airport scale. Praxis's **Lateral Movement**
+agent implements this as a real detection: it cross-checks each user's
+Wi-Fi association events (`sourcetype=praxis:wifi`) against the
+known/authorized access-point inventory (`known_bssid`). An association to
+an unrecognized BSSID broadcasting the corporate SSID — an evil-twin
+pattern — is scored as a `rogue_access_point` signal (HIGH severity), and
+in the planted campaign it's the credential-theft step that precedes
+j.okonkwo's "impossible travel" login.
 
 ## Architecture
 
@@ -21,7 +35,7 @@ Alert source (Splunk saved search → custom alert action)
 Orchestrator (LangGraph)
       │  fan-out (parallel asyncio)
       ├── Identity Analyst ─────┐
-      ├── Lateral Movement ─────┤  each: saia_generate_spl → splunk_search
+      ├── Lateral Movement ─────┤  each: hand-written SPL → splunk_search
       ├── Exfiltration ─────────┼─ via McpSplunkClient (token auth, real MCP)
       ├── Persistence ──────────┤  each scores via rule-based ScoringClient (Feature 3)
       └── Devil's Advocate ─────┘
@@ -33,6 +47,9 @@ Correlation Lead → verdict + kill-chain + confidence score
       │
       └──► HEC: sourcetype=praxis:verdict (closes the loop back into Splunk)
 ```
+
+For full diagrams covering Splunk interaction, agent/AI integration, and
+data flow between every service, see [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
 ## Splunk Capabilities Used
 
@@ -96,17 +113,20 @@ python scripts/verify_alert_action.py
 ## Project Structure
 
 ```
-agents/          # 6 specialist agents
+ARCHITECTURE.md  # Splunk interaction, agent integration, data-flow diagrams
+LICENSE          # MIT
+agents/          # 5 specialist agents
 orchestrator/    # LangGraph fan-out/fan-in
 splunk/          # McpSplunkClient (the ONLY Splunk interface)
 models/          # Finding, Case, Verdict data models
+scoring/         # Rule-based ScoringClient (Feature 3)
 api/             # FastAPI streaming backend
 ui/              # React Investigation Console
 splunk_app/      # Native custom-alert-action app
-data/            # Synthetic attack dataset generator
+data/            # Synthetic attack dataset generator (incl. praxis:wifi)
 scripts/         # verify_live.py and utilities
 ```
 
 ## License
 
-MIT
+[MIT](LICENSE)

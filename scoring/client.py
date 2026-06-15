@@ -8,6 +8,7 @@ maps to a concrete field emitted by the synthetic dataset
   - impossible_travel / geo_velocity_explained  (Impossible Travel Login)
   - mfa_fatigue                                 (MFA Fatigue Pattern)
   - multi_protocol_lateral_movement             (Lateral Movement to File Server)
+  - rogue_access_point                          (Rogue/Evil-Twin Wi-Fi Access Point)
   - unsigned_scheduled_task / encoded_command   (New Scheduled Task Created)
   - approved_change                             (false-alarm: signed task + change ticket)
   - dns_tunneling / low_reputation_destination / large_egress (DNS Tunneling / Large Egress)
@@ -197,6 +198,24 @@ def _evaluate(events: list[dict]) -> list[_Signal]:
                 f"(DNS tunneling pattern)",
             )
         )
+
+    # -- Rogue Wi-Fi access point ---------------------------------------------
+    for event in events:
+        if event.get("action") != "wifi_association":
+            continue
+        if str(event.get("known_bssid", "true")).lower() == "false":
+            signals.append(
+                _Signal(
+                    "rogue_access_point",
+                    4,
+                    f"device associated to SSID {event.get('ssid')!r} via "
+                    f"unrecognized BSSID {event.get('bssid')} "
+                    f"(vendor={event.get('ap_vendor')}, security={event.get('security')}) "
+                    f"not present in the authorized access-point inventory — "
+                    f"possible rogue/evil-twin access point",
+                )
+            )
+            break
 
     # -- Low-reputation destination / large egress ----------------------------
     if any(e.get("dest_reputation") == "low" for e in events):
